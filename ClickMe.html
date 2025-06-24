@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Surprise Card from Tiara😎</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #ffe6f0;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Segoe UI", sans-serif;
+
+        position: relative;
+      }
+
+      .scene {
+        width: 300px;
+        height: 400px;
+        perspective: 1000px;
+        z-index: 2;
+      }
+
+      .card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 1s ease-in-out;
+        cursor: pointer;
+      }
+
+      .card__face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .card__face--front {
+        background: linear-gradient(to bottom right, #ffdde1, #f9c6d2);
+      }
+
+      .card__face--back {
+        background: linear-gradient(to bottom right, #ffe6f0, #fff0f6);
+        transform: rotateY(180deg);
+        flex-direction: column;
+      }
+
+      .card.is-flipped {
+        transform: rotateY(180deg);
+      }
+
+      .fox-image {
+        width: 100px;
+        height: auto;
+        margin-bottom: 15px;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .fox-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+        
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      
+
+      .card h2 {
+        font-family: "Pacifico", "cursive";
+        color: #d6336c;
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        font-size: 1rem;
+        color: #6a3750;
+        line-height: 1.4;
+        font-family: "Pacifico", "cursive";
+      }
+
+      .balloon {
+        position: absolute;
+        width: 60px;
+        height: 80px;
+        border-radius: 50% 50% 45% 45%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          #fff 10%,
+          #ff6b81 60%,
+          #d6336c 100%
+        );
+        box-shadow: inset -5px -10px 10px rgba(0, 0, 0, 0.1);
+        animation: floatUp linear infinite;
+        z-index: 1;
+      }
+
+      .balloon::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 25px;
+        background: #555;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-120vh);
+          opacity: 0;
+        }
+      }
+
+      .confetti {
+        position: absolute;
+        background: #d6336c;
+        opacity: 0.8;
+        animation: confettiFall linear infinite;
+        border-radius: 2px;
+      }
+
+      @keyframes confettiFall {
+        0% {
+          transform: translateY(-10px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scene">
+      <div class="card" id="flip-card">
+        <div class="card__face card__face--front">
+          <h2>Click Me!</h2>
+        </div>
+        <div class="card__face card__face--back">
+         <div class="fox-image">
+  <img src="fox-svgrepo-com-removebg-preview.png" alt="Fox Image" />
+</div>
+
+<audio id="lagu" autoplay loop muted>
+  <source src="happy-birthday-322777.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  window.addEventListener('load', function () {
+    const audio = document.getElementById('lagu');
+    audio.muted = false; // Unmute setelah halaman selesai dimuat
+    audio.play().catch((err) => {
+      console.warn("Autoplay diblokir browser. User harus klik dulu.");
+    });
+  });
+</script>
+
+
+<script>
+  window.addEventListener('load', function () {
+    const audio = document.getElementById('lagu');
+    audio.muted = false; // nyalakan suara
+    audio.play().catch((e) => {
+      console.log("Autoplay diblokir browser, user harus klik dulu.");
+    });
+  });
+</script>
+
+
+
+          <h2>Dear Ayda</h2>
+          <p>
+            Years will pass, but our friendship will never age.<br />
+            On your birthday, I celebrate you—your strength, your soul, your
+            beautiful heart.<br />
+            This is just a little reminder of how deeply you’re loved.<br />
+            Happy Birthday, from your soulmates,<br />Tiara 🌸
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const card = document.getElementById("flip-card");
+      card.addEventListener("click", () => card.classList.toggle("is-flipped"));
+
+      const colors = ["#ff6b81", "#f9c74f", "#90be6d", "#43aa8b", "#577590"];
+
+      for (let i = 0; i < 10; i++) {
+        const balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.left = Math.random() * 100 + "vw";
+        balloon.style.top = 100 + Math.random() * 50 + "vh";
+        balloon.style.background = `radial-gradient(circle at 30% 30%, #fff 10%, ${
+          colors[Math.floor(Math.random() * colors.length)]
+        } 60%, #d6336c 100%)`;
+        balloon.style.animationDuration = 10 + Math.random() * 10 + "s";
+        balloon.style.opacity = Math.random() * 0.8 + 0.3;
+        document.body.appendChild(balloon);
+      }
+
+      for (let i = 0; i < 40; i++) {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.backgroundColor =
+          colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.top = Math.random() * -50 + "vh";
+        const size = Math.random() * 8 + 4;
+        confetti.style.width = size + "px";
+        confetti.style.height = size + "px";
+        confetti.style.animationDuration = Math.random() * 4 + 4 + "s";
+        confetti.style.animationDelay = Math.random() * 2 + "s";
+        document.body.appendChild(confetti);
+      }
+    </script>
+  </body>
+</html>
