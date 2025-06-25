@@ -1,110 +1,138 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+/* Global styles */
 body {
-	font-family: 'Indie Flower', cursive !important;
+  font-family: 'Indie Flower', cursive !important;
   background: #FDE3A7; /*CAPE HONEY*/
-	margin: 0px;
-	padding: 0px;
+  margin: 0;
+  padding: 0;
 }
+
+body, html {
+  overflow: hidden;
+  height: 100%;
+}
+.sprinkle-container {
+  overflow: hidden;
+}
+
+
 ::selection {
-	background: transparent;
+  background: transparent;
 }
+
 h4 {
-	font-size: 25px;
-	line-height: 0px;
-	font-family: 'Amatic SC', cursive !important;
+  font-size: 25px;
+  line-height: 0;
+  font-family: 'Amatic SC', cursive !important;
 }
-.color1{color:#1BBC9B}/*MOUNTAIN MEADOW*/
-.color2{color:#C0392B/*TALL POPPY*/}
+
+.color1 { color: #1BBC9B }  /* MOUNTAIN MEADOW */
+.color2 { color: #C0392B }  /* TALL POPPY */
+
+/* Card styling */
 .card {
-	color: #013243; /*SHERPA BLUE*/
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 300px;
-	height: 400px;
-	background: #e0e1dc;
-	transform-style: preserve-3d;
-	transform: translate(-50%,-50%) perspective(2000px);
-	box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
-	transition: 1s;
+  color: #013243; /*SHERPA BLUE*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 400px;
+  background: #e0e1dc;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) perspective(2000px);
+  box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
+  transition: 1s;
 }
+
 .card:hover {
-	transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
-	box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
+  transform: translate(-50%, -50%) perspective(2000px) rotate(15deg) scale(1.2);
+  box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
 }
+
 .card:before {
-	content:'';
-	position: absolute;
-	top: -5px;
-	left: 0;
-	width: 100%;
-	height: 5px;
-	background: #BAC1BA;
-	transform-origin: bottom;
-	transform: skewX(-45deg);
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #BAC1BA;
+  transform-origin: bottom;
+  transform: skewX(-45deg);
 }
+
 .card:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: -5px;
-	width: 5px;
-	height: 100%;
-	background: #92A29C;
-	transform-origin: left;
-	transform: skewY(-45deg);
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: 5px;
+  height: 100%;
+  background: #92A29C;
+  transform-origin: left;
+  transform: skewY(-45deg);
 }
+
 .card .imgBox {
-	width: 100%;
-	height: 100%;
-	position: relative;
-	transform-origin: left;
-	transition: .7s;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-origin: left;
+  transition: .7s;
 }
+
 .card .bark {
-	position: absolute;
-	background: #e0e1dc;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	transition: .7s;
+  position: absolute;
+  background: #e0e1dc;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: .7s;
 }
+
 .card .imgBox img {
-	min-width: 250px;
-	max-height: 500px;
+  min-width: 250px;
+  max-height: 500px;
 }
+
 .card:hover .imgBox {
-	transform: rotateY(-135deg);
+  transform: rotateY(-135deg);
 }
+
 .card:hover .bark {
-	opacity: 1;
-	transition: .6s;
-    box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+  opacity: 1;
+  transition: .6s;
+  box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
 }
+
 .card .details {
-	position: absolute;
-	top: 0;
-	left: 0;
-	box-sizing: border-box;
-	padding: 0 0 0 10px;
-	z-index: -1;
-	margin-top: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 0 0 0 10px;
+  z-index: -1;
+  margin-top: 70px;
 }
+
 .card .details p {
-	font-size: 11px;
-	line-height: 8px;
-	transform: rotate(-10deg);
-	padding: 0 0 0 20px;
+  font-size: 11px;
+  line-height: 8px;
+  transform: rotate(-10deg);
+  padding-left: 20px;
 }
+
 .card .details h4 {
-	text-align: center;
+  text-align: center;
 }
+
 .text-right {
-	text-align: center;
+  text-align: center;
 }
 
-
+/* Balloons */
 .balloon-container {
   position: fixed;
   bottom: -150px;
@@ -121,99 +149,109 @@ h4 {
   height: 80px;
   border-radius: 50% 50% 45% 45%;
   background: radial-gradient(circle at 30% 30%, white, transparent 60%);
-  animation: float 10s infinite ease-in;
   box-shadow: inset -2px -4px 10px rgba(0, 0, 0, 0.2);
+  animation: float 10s infinite ease-in;
+  animation-fill-mode: both;
 }
 
-
+/* Balloon string */
 .balloon::after {
   content: '';
   position: absolute;
-  bottom: -50px; /* lebih panjang */
+  bottom: -50px;
   left: 50%;
+  transform: translateX(-50%);
   width: 2px;
   height: 50px;
-  transform: translateX(-50%);
-  background: repeating-linear-gradient(
-    0deg,
-    #555,
-    #555 2px,
-    transparent 2px,
-    transparent 4px
-  );
+  background: repeating-linear-gradient(0deg, #333, #333 2px, transparent 2px, transparent 4px);
   animation: wiggle 1s infinite ease-in-out;
 }
 
-
-.balloon.red {
-  background-color: #ff4d4d;
-  left: 20%;
-  animation-delay: 0s;
-}
-.balloon.blue {
-  background-color: #4da6ff;
-  left: 40%;
-  animation-delay: 2s;
-}
-.balloon.green {
-  background-color: #5cd65c;
-  left: 60%;
-  animation-delay: 4s;
-}
-.balloon.yellow {
-  background-color: #ffd633;
-  left: 80%;
-  animation-delay: 6s;
+/* Balloon colors */
+.balloon.red    { background-color: #ff4d4d;    left: 20%; animation-delay: -2s; }
+.balloon.blue   { background-color: #4da6ff;    left: 40%; animation-delay: -4s; }
+.balloon.green  { background-color: #5cd65c;    left: 60%; animation-delay: -6s; }
+.balloon.yellow { background-color: #ffd633;    left: 80%; animation-delay: -8s; }
+.balloon.rainbow {
+  background: radial-gradient(circle at 30% 30%, white, transparent 60%),
+              linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+  left: 90%;
+  animation-delay: -10s;
 }
 
+/* Tambahan balon lain (opsional) */
+.balloon.pink   { background-color: pink;       left: 10%; animation-delay: -1s; }
+.balloon.orange { background-color: orange;     left: 30%; animation-delay: -3s; }
+.balloon.teal   { background-color: teal;       left: 50%; animation-delay: -5s; }
+.balloon.purple { background-color: purple;     left: 70%; animation-delay: -7s; }
+
+/* Animasi balon terbang ke atas */
 @keyframes float {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 10;
-  }
-  10% {
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-600px) scale(1.05);
-  }
-  100% {
-    transform: translateY(-1000px) scale(1);
-    opacity: 0;
-  }
+  0%   { transform: translateY(0) scale(1); opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { transform: translateY(-600px) scale(1.05); }
+  100% { transform: translateY(-1000px) scale(1); opacity: 0; }
 }
 
-
+/* Wiggle untuk tali */
 @keyframes wiggle {
-  0% { transform: translateX(-50%) rotate(3deg); }
-  50% { transform: translateX(-50%) rotate(-3deg); }
+  0%   { transform: translateX(-50%) rotate(3deg); }
+  50%  { transform: translateX(-50%) rotate(-3deg); }
   100% { transform: translateX(-50%) rotate(3deg); }
 }
 
 
-.balloon.rainbow {
-  background: radial-gradient(circle at 30% 30%, white, transparent 60%),
-              linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-  left: 90%; /* Atur posisi agar tidak tumpuk */
-  animation-delay: 8s;
+
+
+
+
+.sprinkle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
 }
 
-
-
-
-
-.balloon {
-  animation-name: float;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in;
-  animation-fill-mode: both;
+.sprinkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: sprinkleFall 6s infinite ease-in;
 }
 
-.balloon.red    { animation-delay: -2s; }
-.balloon.blue   { animation-delay: -4s; }
-.balloon.green  { animation-delay: -6s; }
-.balloon.yellow { animation-delay: -8s; }
-.balloon.rainbow{ animation-delay: -10s; }
+/* Sprinkle variasi posisi dan warna */
+.s1 { left: 10%; background: #FF69B4; animation-delay: 0s; }
+.s2 { left: 20%; background: #FFD700; animation-delay: 1s; }
+.s3 { left: 30%; background: #ADFF2F; animation-delay: 2s; }
+.s4 { left: 40%; background: #00FFFF; animation-delay: 3s; }
+.s5 { left: 50%; background: #FF4500; animation-delay: 4s; }
+.s6 { left: 60%; background: #BA55D3; animation-delay: 2s; }
+.s7 { left: 70%; background: #00FA9A; animation-delay: 1s; }
+.s8 { left: 80%; background: #FFA07A; animation-delay: 3s; }
 
+@keyframes sprinkleFall {
+  0% {
+    top: -10px;
+    opacity: 0;
+    transform: translateY(0) translateX(0px) scale(1);
+  }
+  10% {
+    opacity: 1;
+  }
+   50% {
+    transform: translateY(50%) translateX(10px);
+  }
+  100% {
+  top: 0;
+  transform: translateY(100vh) scale(0.8); /* gunakan transform daripada ubah posisi top */
+  opacity: 0;
+}
 
+}

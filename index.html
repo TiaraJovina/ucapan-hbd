@@ -65,7 +65,52 @@
         <div class="balloon green"></div>
         <div class="balloon yellow"></div>
         <div class="balloon rainbow"></div>
+
+        <div class="balloon purple"></div>
+        <div class="balloon pink"></div>
+        <div class="balloon orange"></div>
+        <div class="balloon teal"></div>
+        <div class="balloon galaxy"></div>
         </div>
+
+
+
+        <div class="sprinkle-container" id="sprinkleContainer"></div>
+        <div class="sprinkle s1"></div>
+        <div class="sprinkle s2"></div>
+        <div class="sprinkle s3"></div>
+        <div class="sprinkle s4"></div>
+        <div class="sprinkle s5"></div>
+        <div class="sprinkle s6"></div>
+        <div class="sprinkle s7"></div>
+        <div class="sprinkle s8"></div>
+       </div>
+
+
+
+        <!-- Sprinkle -->
+       <script>
+  const container = document.getElementById('sprinkleContainer');
+
+  function createSprinkle() {
+    const sprinkle = document.createElement('div');
+    sprinkle.classList.add('sprinkle');
+    sprinkle.style.left = Math.random() * 100 + '%';
+    sprinkle.style.backgroundColor = ['#FF69B4', '#FFD700', '#ADFF2F', '#00FFFF', '#FF4500', '#BA55D3', '#00FA9A', '#FFA07A'][Math.floor(Math.random() * 8)];
+    sprinkle.style.animationDuration = (4 + Math.random() * 3) + 's';
+    container.appendChild(sprinkle);
+
+    setTimeout(() => {
+      sprinkle.remove();
+    }, 7000);
+  }
+
+  setInterval(createSprinkle, 700); // sprinkle baru tiap 200ms
+</script>
+
+
+
+
 
 
     <!-- Background music -->
