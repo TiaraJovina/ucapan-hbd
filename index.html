@@ -19,7 +19,7 @@
             <h4 class="color1">WISH YOU ALL THE BEST!!(YET)</h4>
             <h4 class="color2">(HAPPY BIRTHDAY !💕)</h4>
             <p>DEAR MY FRIEND😍</p>
-            <p>Let's See...</p>
+            <p>Let's See... Aynur🔥</p>
             <p>Now your special day 24 June 2025, 
             <p>I want to shout.. </p>
             <p>"HAPPY LEVEL UP DAY!"</p> 
@@ -27,9 +27,59 @@
             <p>ease, achievements that make you proud,</p>
             <p>and experiences that level up your happiness to the max!!</p>
             </p>                               
-            <p class="text-center">Love u <3</p>
-            <p class="text-left">Tiara J</p>
-   
+            <p class="text-center">Love u 💕</p>
+            <p class="text-left">from : Tiara and Jack🐻</p>
+        </div>
+    </div>
+
+    <!-- Confetti effect -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+      const duration = 5 * 1000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 5,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 }
+        });
+        confetti({
+          particleCount: 5,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    </script>
+
+
+        <div class="balloon-container">
+        <div class="balloon red"></div>
+        <div class="balloon blue"></div>
+        <div class="balloon green"></div>
+        <div class="balloon yellow"></div>
+        <div class="balloon rainbow"></div>
+        </div>
+
+
+    <!-- Background music -->
+    <audio id="bgMusic" autoplay muted loop>
+        <source src="happy-birthday-334876.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+      const audio = document.getElementById('bgMusic');
+      document.addEventListener('click', () => {
+          audio.muted = false;
+          audio.play();
+      }, { once: true });
+    </script>
 
 </body>
 </html>
